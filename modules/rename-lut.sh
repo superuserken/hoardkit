@@ -7,7 +7,7 @@ echo "3) Title Case"
 read -p "Enter your choice [1-3]: " choice
 
 to_title_case() {
-    echo "$1" | sed -E 's/(^| )([a-z])/\1\u\2/g'
+    echo "$1" | sed -E 's/(^|[^[:alpha:]])([[:alpha:]])/\1\u\2/g'
 }
 
 case "$choice" in
@@ -26,29 +26,38 @@ case "$choice" in
         ;;
 esac
 
-for item in *; do
-    if [[ -e "$item" ]]; then
-        base_name=$(basename "$item")
+target_dir="${1:-.}"
 
-        case "$transform_type" in
-            lower)
-                new_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]')
-                ;;
-            upper)
-                new_name=$(echo "$base_name" | tr '[:lower:]' '[:upper:]')
-                ;;
-            title)
-                new_name=$(to_title_case "$base_name")
-                ;;
-        esac
+if [[ ! -d "$target_dir" ]]; then
+    echo "Directory '$target_dir' does not exist."
+    exit 1
+fi
 
-        if [[ "$base_name" != "$new_name" ]]; then
-            if [[ -e "$new_name" ]]; then
-                echo "Skipping '$item' -> '$new_name' (target exists)"
-            else
-                echo "Renaming '$item' -> '$new_name'"
-                mv -- "$item" "$new_name"
-            fi
+shopt -s nullglob
+for item in "$target_dir"/*; do
+    base_name=$(basename "$item")
+
+    case "$transform_type" in
+        lower)
+            new_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]')
+            ;;
+        upper)
+            new_name=$(echo "$base_name" | tr '[:lower:]' '[:upper:]')
+            ;;
+        title)
+            new_name=$(to_title_case "$base_name")
+            ;;
+    esac
+
+    if [[ "$base_name" != "$new_name" ]]; then
+        src="$item"
+        dst="$target_dir/$new_name"
+
+        if [[ -e "$dst" ]]; then
+            echo "Skipping '$base_name' -> '$new_name' (target exists)"
+        else
+            echo "Renaming '$base_name' -> '$new_name'"
+            mv -- "$src" "$dst"
         fi
     fi
 done
