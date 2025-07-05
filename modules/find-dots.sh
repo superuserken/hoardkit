@@ -2,7 +2,8 @@
 
 timestamp=$(date +"%Y%m%d%H%M%S")
 
-default_output_dir="$HOME/Desktop"
+repo_dir="$(dirname "$(dirname "$(realpath "$0")")")"
+default_output_dir="$repo_dir/output"
 
 target_dir="${1:-.}"
 

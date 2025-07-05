@@ -8,16 +8,17 @@ make_modules_executable() {
     done
 }
 
-make_modules_executable
-
-echo "Available modules:"
-for script in "$MODULES_DIR"/*.sh; do
-    [ -f "$script" ] && echo "  $(basename "$script" .sh)"
-done
-
-echo
+show_modules() {
+    echo "Available modules:"
+    for script in "$MODULES_DIR"/*.sh; do
+        [ -f "$script" ] && echo "  $(basename "$script" .sh)"
+    done
+    echo
+}
 
 if [ -z "$1" ]; then
+    make_modules_executable
+    show_modules
     echo "Usage: $0 <module> [args...]"
     exit 1
 fi
@@ -30,4 +31,22 @@ if [ ! -f "$MODULE_SCRIPT" ]; then
 fi
 
 shift
-bash "$MODULE_SCRIPT" "$@"
+
+display_loading() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\\'
+    echo -n "Loading "
+    while kill -0 $pid 2>/dev/null; do
+        for i in $(seq 0 3); do
+            printf "\b${spinstr:$i:1}"
+            sleep $delay
+        done
+    done
+    echo -ne "\bDone\n"
+}
+
+(bash "$MODULE_SCRIPT" "$@") &
+module_pid=$!
+display_loading $module_pid
+wait $module_pid

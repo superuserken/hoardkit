@@ -9,7 +9,7 @@ Hoard Kit is a collection of shell scripts aimed to help data hoarders and data 
 5. Do whatever you want.
 
 ## Hoard Kit Modules
-- find-dots.sh:
+- find-dots
     A tool that recursively finds dot files (hidden files) and hidden folders within a directory and outputs a list of those files.
 - index-html
     A tool that recursively creates an HTML index of a directory, including all its files and folders.
