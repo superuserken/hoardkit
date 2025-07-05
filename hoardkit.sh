@@ -2,6 +2,14 @@
 
 MODULES_DIR="$(dirname "$0")/modules"
 
+make_modules_executable() {
+    for script in "$MODULES_DIR"/*.sh; do
+        [ -f "$script" ] && chmod +x "$script"
+    done
+}
+
+make_modules_executable
+
 echo "Available modules:"
 for script in "$MODULES_DIR"/*.sh; do
     [ -f "$script" ] && echo "  $(basename "$script" .sh)"
