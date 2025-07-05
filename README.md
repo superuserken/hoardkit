@@ -9,16 +9,18 @@ Hoard Kit is a collection of shell scripts aimed to help data hoarders and data 
 5. Do whatever you want.
 
 ## Hoard Kit Modules
-- find-dots
+### delete-paths
+    A tool that deletes files and folders listed in a text (.txt) file and moves them to the Trash.
+### find-dots
     A tool that recursively finds dot files (hidden files) and hidden folders within a directory and outputs a list of those files.
-- index-html
+### index-html
     A tool that recursively creates an HTML index of a directory, including all its files and folders.
-- rename-lut
+### rename-lut
     A tool that renames all files and folders in a single directory path only.
-- show-rwx
+### show-rwx
     A tool that shows the number of files and folders with a certain permission type, useful for finding permission inconsistencies.
 
 ## Project Log:
 - Started on July 4, 2025.
 - 2025-07-04: Released first version of module (rename-lut).
-- 2025-07-05: Released first version of module (find-dots), created a wrapper script (hoardkit.sh)
+- 2025-07-05: Released first version of module (find-dots, index-html), created a wrapper script (hoardkit.sh)
