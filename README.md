@@ -1,5 +1,5 @@
 # hoardkit
-Hoard Kit is a collection of shell scripts aimed to help data hoarders and data curators alike to manage their hoard. Please read the documentation for each tools (modules) before running them, and backup your data while your at it. These tools are mainly created for my own personal use, so feel free to modify and tailor them to your own unique needs.
+Hoard Kit is a collection of Shell scripts aimed to help data hoarders and data curators alike to manage their hoard. Please read the documentation for each tools (modules) before running them, and backup your data while your at it. These tools are mainly created for my own personal use, so feel free to modify and tailor them to your own unique needs.
 
 ## How To Use
 1. Download this repository.
@@ -15,6 +15,8 @@ Hoard Kit is a collection of shell scripts aimed to help data hoarders and data 
     A tool that recursively finds dot files (hidden files) and hidden folders within a directory and outputs a list of those files.
 ### index-html
     A tool that recursively creates an HTML index of a directory, including all its files and folders.
+### populate-dir
+    A tool that populates all empty folders within a directory with a file (PLACEHOLDER.txt).
 ### rename-lut
     A tool that renames all files and folders in a single directory path only.
 ### show-rwx
