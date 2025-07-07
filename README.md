@@ -36,3 +36,4 @@ A tool that recursively scans a directory and shows the number of files and fold
 - 2025-07-04: Released first version of module (rename-lut).
 - 2025-07-05: Released first version of module (find-dots, index-html), created a wrapper script (hoardkit.sh).
 - 2025-07-04: Released first version of module (delete-paths, show-rwx, populate-dir).
+- 2025-07-07: Changed a lot of names, released first version of module (find-ext). The current module count is 8 (batch-rename, change-perms, delete-path, find-ext, find-hidden, index-html, populate-dir, show-perms).
