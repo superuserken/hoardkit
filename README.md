@@ -13,11 +13,15 @@ Hoard Kit is a collection of Shell scripts made to help data hoarders and data c
 - Please navigate to the [/(repository-directory)/output] folder for any output files created by any tools in this kit, unless specified (some scripts may only output there). Output files are in text (.txt) format with the (YYYYMMDDHHMMSS_module-name.txt) as the default format.
 - When specifying any directory for any tools in this kit, it is best to start from the root directory in Linux systems, I haven't tested how any tools will work in non-Linux systems (/home/user/path). PLEASE TEST THEM FIRST TO SEE THE BEHAVIOUR OF CERTAIN TOOLS.
 
-## Modules
+## Modules (8 modules)
 ### delete-paths!
 A tool that deletes all files and folders listed in a text (.txt) file.
 ### find-dots
 A tool that recursively finds dot files (hidden files) and hidden folders within a directory and outputs a list of those files.
+### find-extention
+A tool that finds all files with a given extention, or files without one. It uses the whole filename.extention to detect certain types (.jpg and .JPG is the same, but .jpg and .jpeg is not) or the lack of one. A list will be outputed containing the number, and the file paths.
+### fix-perms
+A tool that recursively sets permissions on files and folders to user-specified defaults (e.g., 644 for files, 755 for directories).
 ### index-html
 A tool that recursively creates an HTML index of a directory, including all files and folders contained within the specified directory.
 ### populate-dir
