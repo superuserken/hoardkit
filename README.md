@@ -14,26 +14,26 @@ Hoard Kit is a collection of Shell scripts made to help data hoarders and data c
 - When specifying any directory for any tools in this kit, it is best to start from the root directory in Linux systems, I haven't tested how any tools will work in non-Linux systems (/home/user/path). PLEASE TEST THEM FIRST TO SEE THE BEHAVIOUR OF CERTAIN TOOLS.
 
 ## Modules (8 modules)
-### delete-paths!
-A tool that deletes all files and folders listed in a text (.txt) file.
-### find-dots
+### batch-rename
+A tool that renames all files and folders in a single directory path only to either lowercase, UPPERCASE, or Titlecase.
+### find-hidden
 A tool that recursively finds dot files (hidden files) and hidden folders within a directory and outputs a list of those files.
-### find-extention
-A tool that finds all files with a given extention, or files without one. It uses the whole filename.extention to detect certain types (.jpg and .JPG is the same, but .jpg and .jpeg is not) or the lack of one. A list will be outputed containing the number, and the file paths.
-### fix-perms
-A tool that recursively sets permissions on files and folders to user-specified defaults (e.g., 644 for files, 755 for directories).
-### index-html
+### index-dir
 A tool that recursively creates an HTML index of a directory, including all files and folders contained within the specified directory.
+### delete-path!
+A tool that deletes all files and folders listed in a text (.txt) file.
+### show-perms
+A tool that recursively scans a directory and shows the number of files and folders with a certain permission type, useful for finding permission inconsistencies.
 ### populate-dir
 A tool that populates all empty folders within a directory with a text file (PLACEHOLDER.txt).
-### rename-lut
-A tool that renames all files and folders in a single directory path only to either lowercase, UPPERCASE, or Titlecase.
-### show-rwx
-A tool that recursively scans a directory and shows the number of files and folders with a certain permission type, useful for finding permission inconsistencies.
+### find-ext
+A tool that finds all files with a given extention, or files without one. It uses the whole filename.extention to detect certain types (.jpg and .JPG is the same, but .jpg and .jpeg is not) or the lack of one. A list will be outputed containing the number, and the file paths.
+### change-perms
+A tool that recursively sets permissions on files and folders to user-specified defaults (e.g., 644 for files, 755 for directories).
 
 ## Project Log:
 - Started on July 4, 2025.
 - 2025-07-04: Released first version of module (rename-lut).
 - 2025-07-05: Released first version of module (find-dots, index-html), created a wrapper script (hoardkit.sh).
 - 2025-07-04: Released first version of module (delete-paths, show-rwx, populate-dir).
-- 2025-07-07: Changed a lot of names, released first version of module (find-ext). The current module count is 8 (batch-rename, change-perms, delete-path, find-ext, find-hidden, index-html, populate-dir, show-perms).
+- 2025-07-07: Changed a lot of names, released first version of module (find-ext). The current module count is 8 (batch-rename, change-perms, delete-path, find-ext, find-hidden, index-dir, populate-dir, show-perms).
